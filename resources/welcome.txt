@@ -1,0 +1,14 @@
+欢迎您使用OpenKorabli战舰名拉丁化工具！
+
+本工具适用于需要使用中文语言进行游戏，但希望战舰名显示为英文（苏联战舰名显示为拉丁化的俄文）的玩家。
+注意：本工具仅适用于Mir Korabley(战舰世界莱服)，不适用于战舰世界[国服]或[直营服]
+
+作者：
+提出假想——walksQAQ
+代码实现——北斗余晖
+
+仓库：https://github.com/OpenKorabli/KorabliNameLatinization
+
+本程序将完成对上述工具的安装。
+
+祝您游戏愉快~
