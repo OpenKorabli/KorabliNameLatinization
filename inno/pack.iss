@@ -1,5 +1,5 @@
 #define MyAppName "战舰名拉丁化工具MK"
-#define MyAppVersion "0.0.1"
+#define MyAppVersion "0.0.2"
 #define MyAppPublisher "OpenKorabli"
 #define MyAppURL "https://github.com/OpenKorabli/KorabliNameLatinization"
 #define MyAppExeName "latinization.exe"

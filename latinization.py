@@ -13,12 +13,10 @@ import cyrtranslit
 import xml.etree.ElementTree as Et
 
 game_types: Dict[str, Tuple[str, bool]] = {
-    'WOWS.RU.PRODUCTION': ('Lesta正式客户端', True),
-    'WOWS.RPT.PRODUCTION': ('Lesta测试客户端', True),
-    'MK.WW.PRODUCTION': ('Lesta正式客户端', True),
-    'MK.PT.PRODUCTION': ('Lesta测试客户端', True),
-    'WOWS.WW.PRODUCTION': ('Wargaming正式客户端', False),
-    'WOWS.PT.PRODUCTION': ('Wargaming测试客户端', False)
+    'MK.RU.PRODUCTION': ('Mir Korabley正式客户端', True),
+    'MK.RPT.PRODUCTION': ('Mir Korabley测试客户端', True),
+    'WOWS.WW.PRODUCTION': ('WoWs正式客户端', False),
+    'WOWS.PT.PRODUCTION': ('WoWs测试客户端', False)
 }
 
 msg_please_input = '请输入：'
@@ -495,7 +493,7 @@ def find_pref_manually() -> List[Path]:
                 possible_lgc_pref_paths.append(target)
         except Exception:
             continue
-    print(f'通过遍历找到的路径：{possible_lgc_pref_paths}' if possible_lgc_pref_paths else '未能通过遍历找到Lesta Game Center。')
+    print(f'通过遍历找到的路径：{[str(_path) for _path in possible_lgc_pref_paths]}' if possible_lgc_pref_paths else '未能通过遍历找到Lesta Game Center。')
     return possible_lgc_pref_paths
 
 
@@ -596,10 +594,13 @@ def main():
     while not available_paths:
         if trigger_1st:
             trigger_1st = False
-            print('未能找到符合条件(WG客户端)的路径。')
+            print('未能找到符合条件(Mir Korabley客户端)的路径。')
         print('请在以上游戏路径中选择其一输入其序号，或手动输入完整路径，或将路径文件夹拖拽到本程序的控制台窗口中；再按回车键。')
         new_path = input(msg_please_input)
-        new_path = check_path_availability(new_path)
+        if new_path.isnumeric():
+            new_path = check_path_availability(selections.get(int(new_path))[0])
+        else:
+            new_path = check_path_availability(new_path)
         if new_path:
             available_paths = new_path
     succeed_paths: List[Path] = []
