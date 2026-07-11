@@ -1,2 +1,2 @@
-cyrtranslit==1.1.1
+mk-latinizer==0.1.0
 polib==1.2.0
